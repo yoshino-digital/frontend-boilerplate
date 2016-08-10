@@ -1,0 +1,38 @@
+{
+  "name": "yoshino-boilerplate",
+  "version": "0.1.0",
+  "description": "Lightweight setup to create new static websites with the Yoshino Ui Core.",
+  "main": "gulpfile.js",
+  "scripts": {
+    "postinstall": "bower install yoshino-ui-core && gulp serve",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yoshino-digital/frontend-boilerplate.git"
+  },
+  "author": "yoshino.digital dev team",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/yoshino-digital/frontend-boilerplate/issues"
+  },
+  "homepage": "https://github.com/yoshino-digital/frontend-boilerplate#readme",
+  "devDependencies": {
+    "bower": "^1.7.9",
+    "browser-sync": "^2.11.0",
+    "del": "^2.2.0",
+    "gulp": "^3.9.0",
+    "gulp-concat": "^2.6.0",
+    "gulp-cssnano": "^2.1.0",
+    "gulp-imagemin": "^2.4.0",
+    "gulp-less": "^3.0.5",
+    "gulp-nunjucks-html": "^2.0.0",
+    "gulp-sourcemaps": "^1.6.0",
+    "gulp-uglify": "^1.5.1",
+    "gulp-util": "^3.0.7",
+    "merge-stream": "^1.0.0",
+    "node-slack": "0.0.7",
+    "run-sequence": "^1.1.5",
+    "vinyl-ftp": "^0.4.5"
+  }
+}
