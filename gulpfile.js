@@ -141,6 +141,12 @@ gulp.task('copy', function() {
         ])
         .pipe(gulp.dest('./dist/assets/fonts/'));
         
+    var copyIconFont = gulp.src('./bower_components/yoshino-icons/webfont/**/*')
+        .pipe(gulp.dest('./dist/assets/fonts/icons/'));
+        
+    var copyIconSvgs = gulp.src('./bower_components/yoshino-icons/svg/**/*.svg')
+        .pipe(gulp.dest('./dist/assets/img/icons/'));
+        
     var copyImages = gulp.src([
             '!./src/assets/img/**/readme.md',
             './src/assets/img/**/*'
@@ -148,7 +154,7 @@ gulp.task('copy', function() {
         .pipe(compressImages ? imagemin() : gutil.noop())
         .pipe(gulp.dest('./dist/assets/img/'));
 
-    return merge(copyFavicon, copyFonts, copyImages);
+    return merge(copyFavicon, copyFonts, copyImages, copyIconFont, copyIconSvgs);
 
 });
 
