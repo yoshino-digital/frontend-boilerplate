@@ -101,6 +101,7 @@ gulp.task('js', function() {
     
     var scripts = require('./src/assets/js/yoshino-ui-core.json');
     var libs    = require('./src/assets/js/libs.json');
+    var theme   = require('./src/assets/js/theme.json');
     
     var yoshinoUiCore = gulp.src(scripts.src)
         .pipe(writeSourceMaps ? gutil.noop() : sourcemaps.init())
@@ -117,9 +118,12 @@ gulp.task('js', function() {
         .pipe(concat('jquery-ui.js'))
         .pipe(gulp.dest('./dist/assets/js/libs/'));
         
-    var theme = gulp.src('./src/assets/js/theme.js')
-        .pipe(concat('theme.js'))
-        .pipe(gulp.dest('./dist/assets/js/')); 
+    var theme = gulp.src(theme.src)
+        .pipe(writeSourceMaps ? gutil.noop() : sourcemaps.init())
+            .pipe(concat('theme.js'))
+            .pipe(compressScripts ? uglify().on('error', printError) : gutil.noop())
+        .pipe(writeSourceMaps ? gutil.noop() : sourcemaps.write('.'))
+        .pipe(gulp.dest('./dist/assets/js/'));
 
     return merge(yoshinoUiCore, jQuery, jQueryUiCustom, theme);
 

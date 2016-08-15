@@ -30,7 +30,6 @@
         "./bower_components/yoshino-ui-core/src/assets/js/modules/slider.js",
         "./bower_components/yoshino-ui-core/src/assets/js/modules/stepper.js",
         "./bower_components/yoshino-ui-core/src/assets/js/modules/stickyElements.js",
-        "./bower_components/yoshino-ui-core/src/assets/js/modules/stickyHeader.js",
         "./bower_components/yoshino-ui-core/src/assets/js/modules/stickyTeasers.js",
         "./bower_components/yoshino-ui-core/src/assets/js/modules/suggestedBundle.js",
         "./bower_components/yoshino-ui-core/src/assets/js/modules/tables.js",
