@@ -183,14 +183,14 @@ gulp.task('templates', function() {
 
 });
 
-gulp.task('serve', function() {
+gulp.task('serve', function(callback) {
 
     /**
      *  Run a local web server and some watch tasks which trigger a
      *  refresh when files get changed.
      */
 
-    runsequence('clean', ['templates', 'less', 'js', 'copy'], function() {
+    runsequence('clean', ['templates', 'less', 'js', 'copy'], function(callback) {
 
         gulp.watch('./src/assets/js/**/*.js', ['js']);
         gulp.watch('./src/assets/less/**/*.less', ['less']);
