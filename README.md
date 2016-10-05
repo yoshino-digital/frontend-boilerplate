@@ -1,6 +1,6 @@
 # Yoshino Boilerplate
 
-This is a bare bone package to kickstart your project with the Yoshino Ui Core library. Make sure you read the [docs](https://yoshino.digital/ui-core/docs/) to learn how to use the components and how to customize your project.
+This is a bare bone package to kickstart your project with the Yoshino Ui Core library. Make sure you read the [docs](https://yoshino-digital.github.io/ui-core/) to learn how to use the components and how to customize your project.
 
 ## Setup
 
