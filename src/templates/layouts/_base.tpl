@@ -10,10 +10,8 @@
     <body class="noJs" data-environment="desktop">
         <script>document.body.className='js';</script>
         {% block main %}{% endblock %}
-        <script src="assets/js/libs/jquery.js"></script>
-        <script src="assets/js/libs/jquery-ui.js"></script>
-        <script src="assets/js/yoshino-ui-core.js"></script>
-        <script src="assets/js/theme.js"></script>
+        <script src="assets/js/jquery.min.js"></script>
+        <script src="assets/js/scripts.js"></script>
         {% block customScripts %}{% endblock %}
     </body>
 </html>

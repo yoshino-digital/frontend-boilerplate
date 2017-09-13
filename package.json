@@ -1,38 +1,57 @@
 {
-  "name": "yoshino-boilerplate",
-  "version": "0.1.0",
-  "description": "Lightweight setup to create new static websites with the Yoshino Ui Core.",
-  "main": "gulpfile.js",
-  "scripts": {
-    "postinstall": "bower install yoshino-ui-core && gulp serve",
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/yoshino-digital/frontend-boilerplate.git"
-  },
+  "name": "yoshino-yoi-boilerplate",
+  "version": "0.0.1",
+  "description": "Lightweight setup to create static websites with YOI - the Yoshino frontend component library.",
   "author": "yoshino.digital dev team",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/yoshino-digital/frontend-boilerplate/issues"
-  },
-  "homepage": "https://github.com/yoshino-digital/frontend-boilerplate#readme",
   "devDependencies": {
-    "bower": "^1.7.9",
-    "browser-sync": "^2.11.0",
-    "del": "^2.2.0",
-    "gulp": "^3.9.0",
-    "gulp-concat": "^2.6.0",
-    "gulp-cssnano": "^2.1.0",
-    "gulp-imagemin": "^2.4.0",
-    "gulp-less": "^3.0.5",
-    "gulp-nunjucks-html": "^2.0.0",
-    "gulp-sourcemaps": "^1.6.0",
-    "gulp-uglify": "^1.5.1",
-    "gulp-util": "^3.0.7",
-    "merge-stream": "^1.0.0",
-    "node-slack": "0.0.7",
-    "run-sequence": "^1.1.5",
-    "vinyl-ftp": "^0.4.5"
+    "autoprefixer": "^6.7.7",
+    "bower": "^1.8.0",
+    "browser-sync": "^2.18.8",
+    "less": "^2.7.2",
+    "uglify-js": "^2.8.14"
+  },
+  "scripts": {
+      
+    "preinstall": "npm run install-bower && npm run install-clis && npm run make-less",
+    
+    "install-bower": "npm install -g bower && bower update",
+    "install-clis": "npm install -g chokidar-cli && npm install -g cssnano-cli && npm install -g nunjucks-cli && npm install -g postcss-cli",
+    
+    "clean-dist": "rm -rf dist && mkdir dist && mkdir dist/assets && mkdir dist/assets/css dist/assets/img dist/assets/js",
+    
+    "copy": "npm run copy-favicon && npm run copy-images && npm run copy-scripts",
+    "copy-favicon": "cp src/assets/img/favicon.ico dist",
+    "copy-images": "cp src/assets/img/* dist/assets/img",
+    "copy-scripts": "cp bower_components/jquery/dist/jquery.min.js dist/assets/js",
+    "copy-fonts": "",
+    "copy-less-yoi-config": "find bower_components/yoshino-yoi/src/less/config -name '*.less' -exec cp {} src/assets/less/config \\;",
+    
+    "make-less": "npm run copy-less-yoi-config && npm run make-less-yoi-config-index && npm run make-less-yoi-core-index && npm run make-less-yoi-utilities-index && npm run make-less-yoi-components-index",
+    "make-less-yoi-config-index": "find src/assets/less/config -name '*.less' -exec echo '@import \"./{}\";' \\; > src/assets/less/yoi-config.less",
+    "make-less-yoi-core-index": "find bower_components/yoshino-yoi/src/less/core -name '*.less' -exec echo '@import \"./{}\";' \\; > src/assets/less/yoi-core.less",
+    "make-less-yoi-utilities-index": "find bower_components/yoshino-yoi/src/less/utilities -name '*.less' -exec echo '@import \"./{}\";' \\; > src/assets/less/yoi-utilities.less",
+    "make-less-yoi-components-index": "find bower_components/yoshino-yoi/src/components -name '*.less' -exec echo '@import \"./{}\";' \\; > src/assets/less/yoi-components.less",
+    "make-js-components-index": "find bower_components/yoshino-yoi/src/components -name '*.js' -exec echo './{}' \\; > src/assets/js/yoi-components.txt",
+    
+    "styles:process": "postcss --use autoprefixer -b 'last 2 versions' dist/assets/css/screen.css -o dist/assets/css/screen.css",
+    "styles:compress": "cssnano dist/assets/css/screen.css dist/assets/css/screen.css --svgo",
+    "styles:compile": "lessc src/assets/less/theme.less dist/assets/css/screen.css",
+    
+    "build": "npm run clean-dist && npm run build-scripts && npm run build-styles && npm run build-templates && npm run copy",
+    "build-scripts": "uglifyjs $(cat src/assets/js/yoi-components.txt ; echo $(find bower_components/yoshino-yoi/src/js -name '*.js' -exec echo '{}' \\;) ; echo $(find src/assets/js/theme -name '*.js' -exec echo '{}' \\;)) --source-map-inline --beautify -o dist/assets/js/scripts.js",
+    "build-styles": "npm run styles:compile --source-map-map-inline && npm run styles:process",
+    "build-templates": "nunjucks **/*.tpl --path src/templates --options src/templates/options.json --out dist",
+    
+    "publish": "npm run clean-dist && npm run publish-scripts && npm run publish-styles",
+    "publish-scripts": "uglifyjs $(cat src/assets/js/yoi-components.txt ; echo $(find bower_components/yoshino-yoi/src/js -name '*.js' -exec echo '{}' \\;) ; echo $(find src/assets/js/theme -name '*.js' -exec echo '{}' \\;)) --compress -o dist/assets/js/scripts.js",
+    "publish-styles": "npm run styles:compile && npm run styles:process && npm run styles:compress",
+    
+    "serve": "npm run watch & browser-sync start --server 'dist/' --cors",
+    
+    "watch": "npm run watch-assets & npm run watch-templates",
+    "watch-templates": "chokidar 'src/templates/**/*.tml' -c 'npm run build-templates && browser-sync reload'",
+    "watch-scripts": "chokidar 'src/assets/**/*,js' -c 'npm run build-scripts'",
+    "watch-styles": "chokidar 'src/assets/less/**/*.less' -c 'npm run build-styles'"
+    
   }
 }

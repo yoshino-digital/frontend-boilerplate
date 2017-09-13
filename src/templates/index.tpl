@@ -1,4 +1,4 @@
-{% extends 'layouts/base.html' %}
+{% extends 'layouts/_base.tpl' %}
 {% block main %}
 
 <div class="article w-50 m-lr-auto p-t-10">

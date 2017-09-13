@@ -1,15 +1,35 @@
 /** breakpoints.less */
 
+// constants
+
+@bp-m-minwidth  : 65rem;
+@bp-l-minwidth  : 96rem;
+@bp-xl-minwidth : 122rem;
+
+@bp-s-maxwidth  : (@bp-m-minwidth - 0.01);
+@bp-m-maxwidth  : (@bp-l-minwidth - 0.01);
+@bp-l-maxwidth  : (@bp-xl-minwidth - 0.01);
+
+// "fluid" breakpoints
+
+/*
+    Media queries with these breakpoints kick in as soon as a certain screen
+    width is reached. A larger breakpoint overrides all smaller ones.
+    Example: .m--* is active "from screen size m and up".
+*/
+
+@bp-s  : ~"only screen and (min-width: 0rem)";
+@bp-m  : ~"only screen and (min-width: @{bp-m-minwidth})";
+@bp-l  : ~"only screen and (min-width: @{bp-l-minwidth})";
+@bp-xl : ~"only screen and (min-width: @{bp-xl-minwidth})";
+
 // "strict" breakpoints
 
-@bp-only-s  : ~"only screen and (min-width: 1px) and (max-width: 699px)";
-@bp-only-m  : ~"only screen and (min-width: 700px) and (max-width: 959px)";
-@bp-only-l  : ~"only screen and (min-width: 960px) and (max-width: 1219px)";
-@bp-only-xl : ~"only screen and (min-width: 1220px)";
+/*
+    Media queries with these breakpoints are active only in their certain range.
+    Example: .only-m--* is active only on screens within the width range of breakpoint "m".
+*/
 
-// "overlapping" breakpoints
-
-@bp-from-s  : ~"only screen and (max-width: 700px)";
-@bp-from-m  : ~"only screen and (min-width: 701px)";
-@bp-from-l  : ~"only screen and (min-width: 960px)";
-@bp-from-xl : ~"only screen and (min-width: 1220px)";
+@bp-only-s  : ~"only screen and (min-width: 0rem) and (max-width: @{bp-s-maxwidth})";
+@bp-only-m  : ~"only screen and (min-width: @{bp-m-minwidth}) and (max-width: @{bp-m-maxwidth})";
+@bp-only-l  : ~"only screen and (min-width: @{bp-l-minwidth}) and (max-width: @{bp-l-maxwidth})";

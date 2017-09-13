@@ -1,9 +1,9 @@
 {
-  "name": "yoshino-boilerplate",
+  "name": "yoshino-yoi-boilerplate",
   "dependencies": {
-    "yoshino-yoi": "^0.1.3",
-    "jquery-ui": "^1.12.0",
-    "normalize-css": "^4.2.0"
+    "jquery": "^3.0.0",
+    "normalize-css": "^4.2.0",
+    "yoshino-yoi": "^0.1.3"
   },
   "private": true
 }
