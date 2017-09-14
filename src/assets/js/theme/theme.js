@@ -1,15 +1,15 @@
 /** theme.js */
 
 /**
- * Notes
- * =====
+ * Scripts for Your Project
+ * ========================
  * 
  * If you are building a rather simple project, put all your scripts inside this file.
  * 
  * If you are building a somewhat larger project, create individual files. They are
- * merged into a single file during the build-process.
+ * merged into a single file during the build process.
  * 
- * You can use jQuery - it’s already included.
+ * Use jQuery - it’s already included!
  */
 
 $(function() {
