@@ -1,12 +1,16 @@
 /** theme.js */
 
-/*
-If you are building a rather simple project, put all your scripts inside this file.
-If you are building a somewhat larger project, create individual files and use gulp
-for concatenation and compression.
-
-You can use jQuery - it’s already included:
-*/
+/**
+ * Notes
+ * =====
+ * 
+ * If you are building a rather simple project, put all your scripts inside this file.
+ * 
+ * If you are building a somewhat larger project, create individual files. They are
+ * merged into a single file during the build-process.
+ * 
+ * You can use jQuery - it’s already included.
+ */
 
 $(function() {
     
@@ -21,7 +25,7 @@ $(function() {
             var $this = $(this);
             $this.css('position','relative');
             
-            Helper.setInterval('delaySparkle', 200, function() {
+            YOI.setInterval('delaySparkle', 200, function() {
                 sparkle($this);
                 sparkle($this);
                 sparkle($this);
