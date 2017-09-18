@@ -16,7 +16,7 @@
     "uncss": "^0.15.0"
   },
   "scripts": {
-    "postinstall": "bower update && npm run prepare-less && npm build && npm serve",
+    "postinstall": "bower update && npm run prepare-less && npm run build && npm run serve",
     "clean-dist": "rm -rf dist && mkdir dist && mkdir dist/assets && mkdir dist/assets/css dist/assets/img dist/assets/js",
     "copy": "npm run copy-favicon && npm run copy-images && npm run copy-scripts && npm run copy-fonts",
     "copy-favicon": "cp src/assets/img/favicon.ico dist",
