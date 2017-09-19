@@ -1,0 +1,4 @@
+./bower_components/yoshino-yoi/src/js/behaviours/dismiss.js
+./bower_components/yoshino-yoi/src/js/behaviours/lazyload.js
+./bower_components/yoshino-yoi/src/js/behaviours/scrollFx.js
+./bower_components/yoshino-yoi/src/js/behaviours/sticky.js

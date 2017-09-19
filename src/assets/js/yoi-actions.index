@@ -1,0 +1,7 @@
+./bower_components/yoshino-yoi/src/js/actions/blink.js
+./bower_components/yoshino-yoi/src/js/actions/hide.js
+./bower_components/yoshino-yoi/src/js/actions/pulse.js
+./bower_components/yoshino-yoi/src/js/actions/remove.js
+./bower_components/yoshino-yoi/src/js/actions/scrollTo.js
+./bower_components/yoshino-yoi/src/js/actions/show.js
+./bower_components/yoshino-yoi/src/js/actions/update.js

@@ -1,0 +1,4 @@
+./bower_components/yoshino-yoi/src/js/modules/browserHistory.js
+./bower_components/yoshino-yoi/src/js/modules/keyboardAgent.js
+./bower_components/yoshino-yoi/src/js/modules/resizeAgent.js
+./bower_components/yoshino-yoi/src/js/modules/scrollAgent.js
