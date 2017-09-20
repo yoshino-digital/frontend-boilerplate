@@ -1,4 +1,4 @@
-/** screen-docs.less */
+/** theme.less */
 
 /**
  *  normalize
@@ -20,7 +20,10 @@
  *  Documentation => https://yoshino-digital.github.io/yoi/start/customizing.html
  */
 
-@import "yoi-config.less";
+@import "./src/assets/less/config/breakpoints.less";
+@import "./src/assets/less/config/colors.less";
+@import "./src/assets/less/config/options.less";
+@import "./src/assets/less/config/typography.less";
 
 /**
  *  core
@@ -30,7 +33,11 @@
  *  These files are the foundation for each YOI project.
  */
 
-@import "yoi-core.less";
+@import "./bower_components/yoshino-yoi/src/less/core/accessibility.less";
+@import "./bower_components/yoshino-yoi/src/less/core/debug.less";
+@import "./bower_components/yoshino-yoi/src/less/core/mixins.less";
+@import "./bower_components/yoshino-yoi/src/less/core/reset.less";
+@import "./bower_components/yoshino-yoi/src/less/core/root.less";
 
 /**
  *  utilities
@@ -64,4 +71,4 @@
  *  Import additional style sheets for your project. Put your less files into _./src/assets/less/theme/_
  */
 
-// @import "theme/someFile.less";
+@import "theme/main.less";
