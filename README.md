@@ -31,3 +31,5 @@ It makes sense to chain the two commands: `npm run build && npm run serve`
 
 1. Once you are ready, run the publish process: `npm run publish`.
 2. After the publish process is complete, you have a static html site inside the directory `dist`. Upload the whole content of the directory to your web server.
+
+If you have ssh access to your webserver, you can use the upload script via the command line. Have a look at package.json and edit the line `"upload": "scp -r ./dist/* user@server:/html/"` to add your user name, server address and destination path. Run the upload script via `npm run upload`.
