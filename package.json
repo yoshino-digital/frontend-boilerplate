@@ -44,12 +44,15 @@
     "build-styles": "npm run styles:compile --source-map-map-inline && npm run styles:process",
     "build-templates": "nunjucks **/*.tpl --options src/templates/_config.json --path src/templates --out dist",
     "publish": "npm run clean-dist && npm run publish-scripts && npm run publish-styles && npm run build-templates && npm run copy",
-    "publish-scripts": "uglifyjs $(echo 'bower_components/yoshino-yoi/src/js/yoi.js' ; echo $(cat src/assets/js/yoi-components.index) ; echo $(find src/assets/js/theme -name '*.js' -exec echo '{}' \\;)) --compress -o dist/assets/js/scripts.js",
+    "publish-scripts": "uglifyjs $(echo 'bower_components/yoshino-yoi/src/js/yoi.js' ; echo $(cat src/assets/js/yoi-*.index) ; echo $(find src/assets/js/theme -name '*.js' -exec echo '{}' \\;)) --compress -o dist/assets/js/scripts.js",
     "publish-styles": "npm run styles:compile && npm run styles:process && npm run styles:compress",
     "serve": "npm run watch & browser-sync start --server 'dist' --files 'dist' --cors --no-inject-changes",
-    "watch": "npm run watch-scripts & npm run watch-styles & npm run watch-templates",
+    "watch": "npm run watch-fonts & npm run watch-images & npm run watch-scripts & npm run watch-styles & npm run watch-templates",
+    "watch-fonts": "chokidar 'src/assets/img/**/*' -c 'npm run copy-fonts'",
+    "watch-images": "chokidar 'src/assets/img/**/*' -c 'npm run copy-images'",
     "watch-scripts": "chokidar 'src/assets/js/**/*' -c 'npm run build-scripts'",
     "watch-styles": "chokidar 'src/assets/less/**/*' -c 'npm run build-styles'",
-    "watch-templates": "chokidar 'src/templates/**/*' -c 'npm run build-templates'"
+    "watch-templates": "chokidar 'src/templates/**/*' -c 'npm run build-templates'",
+    "upload": "scp -r ./dist/* user@server:/html/"
   }
 }
