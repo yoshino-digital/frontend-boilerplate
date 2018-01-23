@@ -4,7 +4,7 @@
 <html lang="en">
     <head>
         <meta charset="utf-8">
-        <title>A YOI Project</title>
+        <title>A Yoi Project</title>
         <link href="{{ base }}assets/css/screen.css" rel="stylesheet" />
         <link href="{{ base }}favicon.ico" rel="shortcut icon" type="image/x-icon" />
         {% block customStyles %}{% endblock %}
