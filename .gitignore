@@ -3,3 +3,6 @@ node_modules
 bower_components
 dist
 credentials.json
+src/assets/less/config/*.less
+src/assets/less/yoi-components.less
+src/assets/less/yoi-utilities.less
