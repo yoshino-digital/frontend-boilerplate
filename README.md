@@ -32,7 +32,7 @@ It makes sense to chain the two commands: `npm run build && npm run serve`
 ### Publish
 
 1. Once you are ready, run the publish process: `npm run publish`.
-2. After the publish process is complete, you have a static html site inside the directory `dist`. Upload the whole content of the directory to your web server. You can use the command line to upload &mdash; see [upload](#upload).
+2. After the publish process is complete, you have a static html site inside the directory `dist`. Upload the whole content of the directory to your web server. You can use the command line to upload &mdash; see [upload](#deploying).
 
 ### Difference between Building & Publishing
 
