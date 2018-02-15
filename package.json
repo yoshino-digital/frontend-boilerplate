@@ -43,7 +43,7 @@
     "build": "npm run dist-empty && npm run build-scripts && npm run build-styles && npm run build-templates && npm run copy",
     "build-scripts": "uglifyjs $(echo 'bower_components/yoshino-yoi/src/js/yoi.js' ; echo $(cat src/assets/js/yoi-*.index) ; echo $(find src/assets/js/theme -name '*.js' -exec echo '{}' \\;)) --source-map-inline --beautify -o dist/assets/js/scripts.js",
     "build-styles": "npm run styles-compile --source-map-map-inline && npm run styles-process",
-    "build-templates": "nunjucks **/*.tpl --options src/templates/_config.json --path src/templates --out dist",
+    "build-templates": "nunjucks **/*.njk --options src/templates/_config.json --path src/templates --out dist",
     "publish": "npm run dist-empty && npm run build-templates && npm run publish-scripts && npm run copy && npm run publish-styles && npm run dist-clean",
     "publish-scripts": "uglifyjs $(echo 'bower_components/yoshino-yoi/src/js/yoi.js' ; echo $(cat src/assets/js/yoi-*.index) ; echo $(find src/assets/js/theme -name '*.js' -exec echo '{}' \\;)) --compress -o dist/assets/js/scripts.js",
     "publish-styles": "npm run styles-compile && npm run styles-process && npm run styles-reduce && npm run styles-compress",
