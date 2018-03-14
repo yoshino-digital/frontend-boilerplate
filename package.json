@@ -15,7 +15,7 @@
     "uglify-js": "^2.8.14",
     "uncss": "^0.16.1"
   },
-    "scripts": {
+  "scripts": {
     "postinstall": "npm run yoi-update && npm run yoi-init && npm run build && npm run serve",
     "dist-empty": "rm -rf dist && mkdir dist && mkdir dist/assets && mkdir dist/assets/css dist/assets/fonts dist/assets/img dist/assets/js",
     "dist-clean": "rm dist/assets/css/screen.css && mv dist/assets/css/screen.reduced.css dist/assets/css/screen.css",
@@ -46,7 +46,7 @@
     "build-templates": "nunjucks **/*.njk --options src/templates/_config.json --path src/templates --out dist",
     "publish": "npm run dist-empty && npm run build-templates && npm run publish-scripts && npm run copy && npm run publish-styles",
     "publish-scripts": "uglifyjs $(echo 'bower_components/yoshino-yoi/src/js/yoi.js' ; echo $(cat src/assets/js/yoi-*.index) ; echo $(find src/assets/js/theme -name '*.js' -exec echo '{}' \\;)) --compress -o dist/assets/js/scripts.js",
-    "publish-styles": "npm run styles-compile && npm run styles-process && npm run styles-compress && npm run styles-reduce",
+    "publish-styles": "npm run styles-compile && npm run styles-process && npm run styles-reduce && npm run styles-compress",
     "serve": "npm run watch & browser-sync start --server 'dist' --files 'dist' --cors --no-notify",
     "watch": "npm run watch-fonts & npm run watch-images & npm run watch-scripts & npm run watch-styles & npm run watch-templates",
     "watch-fonts": "chokidar 'src/assets/img/**/*' -c 'npm run copy-fonts'",
