@@ -27,7 +27,7 @@ During development, you can use the following [NPM scripts](https://docs.npmjs.c
 1. Run the build process for development: `npm run build`
 2. Start a local preview server (with auto-refresh on changes): `npm run serve`
 
-It makes sense to chain the two commands: `npm run build && npm run serve`
+As a shortcut, you could also use: `npm run dev` which runs both `build` and `serve`.
 
 ### Publish
 
