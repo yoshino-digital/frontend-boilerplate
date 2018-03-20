@@ -13,8 +13,15 @@ This repository contains a lot of useful contextual documentation in the form of
 To start a new project, you need to install some files on your computer:
 
 - install Node.js and NPM: [on MacOs](https://treehouse.github.io/installation-guides/mac/node-mac.html) | [on Windows](https://treehouse.github.io/installation-guides/windows/node-windows.html)
-- clone this repository, navigate to the local directory via Terminal and start the setup: `npm install`
+- copy the content of this repository to your computer, navigate to the local directory via Terminal and start the setup: `npm install`
 - after the install process, a new browser window should open and display the index page
+
+If you plan to use GIT with your project, delete the following lines from your .gitignore file (or your configuration changes won’t be commited):
+
+    src/assets/js/*.index
+    src/assets/less/config/*.less
+    src/assets/less/yoi-components.less
+    src/assets/less/yoi-utilities.less
 
 ## Developing
 
