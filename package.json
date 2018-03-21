@@ -1,7 +1,7 @@
 {
   "name": "yoshino-yoi-boilerplate",
   "version": "0.0.1",
-  "description": "Lightweight setup to create static websites with YOI - the Yoshino frontend component library.",
+  "description": "Lightweight starter kit to create static websites with Yoi - the Yoshino frontend component library.",
   "author": "yoshino.digital dev team",
   "config": {
     "distSubdir": ""

@@ -1,10 +1,11 @@
 # Yoi Boilerplate
 
-This repository is a starter kit to kickstart your project with [Yoi – the Yoshino Frontend Component Library](https://github.com/yoshino-digital/yoi). It features:
+This repository is a starter kit to kickstart your project with [Yoi – the Yoshino frontend component library](https://github.com/yoshino-digital/yoi). It features:
 
+* all of Yoi’s utilities, components, actions etc.
 * a simple but powerful static site builder
 * templating with [Nunjucks](https://mozilla.github.io/nunjucks/) (with powerful features like inheritance, macros, injected data via json, …)
-* JavaScript/Node -based build tools (via [npm scripts](https://docs.npmjs.com/misc/scripts)) with [local browser](https://browsersync.io) instance for preview, CSS preprosessing with [LESS](http://lesscss.org), CSS compression, [a tool](https://github.com/uncss/uncss) to remove unused CSS for deployment, script & image-compression and deployment/upload to your web server via ssh
+* JavaScript/Node -based build tools (via [npm scripts](https://docs.npmjs.com/misc/scripts)) with [local browser](https://browsersync.io) instance for preview, CSS preprosessing with [LESS](http://lesscss.org), CSS compression and even [removal of unused CSS](https://github.com/uncss/uncss) during deployment, script & image-compression and a `upload` task to publish your project via ssh to your web server
 
 ## Documentation
 
