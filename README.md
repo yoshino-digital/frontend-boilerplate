@@ -1,6 +1,10 @@
-# YOI Boilerplate
+# Yoi Boilerplate
 
-This repository is a starter kit to kickstart your project with [Yoi – the Yoshino Frontend Component Library](https://github.com/yoshino-digital/yoi).
+This repository is a starter kit to kickstart your project with [Yoi – the Yoshino Frontend Component Library](https://github.com/yoshino-digital/yoi). It features:
+
+* a simple but powerful static site builder
+* templating with [Nunjucks](https://mozilla.github.io/nunjucks/) (with powerful features like inheritance, macros, injected data via json, …)
+* JavaScript/Node -based build tools (via [npm scripts](https://docs.npmjs.com/misc/scripts)) with [local browser](https://browsersync.io) instance for preview, CSS preprosessing with [LESS](http://lesscss.org), CSS compression, [a tool](https://github.com/uncss/uncss) to remove unused CSS for deployment, script & image-compression and deployment/upload to your web server via ssh
 
 ## Documentation
 
@@ -16,7 +20,7 @@ To start a new project, you need to install some files on your computer:
 - copy the content of this repository to your computer, navigate to the local directory via Terminal and start the setup: `npm install`
 - after the install process, a new browser window should open and display the index page
 
-If you plan to use GIT with your project, delete the following lines from your .gitignore file (or your configuration changes won’t be commited):
+If you plan to use GIT with your project, **delete the following lines** from your .gitignore file (or your configuration changes won’t be commited):
 
     src/assets/js/*.index
     src/assets/less/config/*.less
@@ -32,14 +36,17 @@ During development, you can use the following [NPM scripts](https://docs.npmjs.c
 ### Build & Serve
 
 1. Run the build process for development: `npm run build`
-2. Start a local preview server (with auto-refresh on changes): `npm run serve`
+2. Start a local preview server: `npm run serve`
+3. Run the watch task to make your browser refresh on changes: `npm run watch`
 
-As a shortcut, you could also use: `npm run dev` which runs both `build` and `serve`.
+As a shortcut, you could also use: `npm run dev` which chains the tasks `build`, `serve` and `watch`.
 
 ### Publish
 
 1. Once you are ready, run the publish process: `npm run publish`.
-2. After the publish process is complete, you have a static html site inside the directory `dist`. Upload the whole content of the directory to your web server. You can use the command line to upload &mdash; see [upload](#deploying).
+2. After the publish process is complete, you have a static html site inside the directory `dist`.
+3. If you wish to preview the built, run `npm run serve`
+4. You can now use the `upload` task to [deploy](#deploying) your site.
 
 ### Difference between Building & Publishing
 
@@ -48,4 +55,4 @@ The publish-prefixed scripts produce compressed files without source maps and th
 
 ## Deploying
 
-If you have ssh access to your webserver, you can use the upload script via the command line. Have a look at package.json and edit the line `"upload": "scp -r ./dist/* user@server:/html/"` to add your user name, server address and destination path. Run the upload script via `npm run upload`.
+If you have **ssh access to your webserver**, you can use the upload script via the command line. Edit the line `"upload": "scp -r ./dist/* user@server:/html/"` in `/package.json` to add your user name, server address and destination path. Run the upload script via `npm run upload`.
