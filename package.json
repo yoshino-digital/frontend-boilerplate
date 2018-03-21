@@ -42,7 +42,6 @@
     "yoi-js-components-index": "find bower_components/yoshino-yoi/src/components -name '*.js' -exec echo './{}' \\; > src/assets/js/yoi-components.index",
     "styles-process": "postcss -u autoprefixer -b 'last 2 versions' dist/$npm_package_config_distSubdir/assets/css/screen.css -o dist/$npm_package_config_distSubdir/assets/css/screen.css --no-map",
     "styles-compile": "lessc src/assets/less/theme.less dist/$npm_package_config_distSubdir/assets/css/screen.css",
-    "styles-compress-old": "cssnano dist/$npm_package_config_distSubdir/assets/css/screen.css dist/$npm_package_config_distSubdir/assets/css/screen.css --svgo",
     "styles-compress": "postcss -u cssnano -o dist/$npm_package_config_distSubdir/assets/css/screen.css dist/$npm_package_config_distSubdir/assets/css/screen.css --no-map",
     "styles-reduce": "uncss dist/$npm_package_config_distSubdir/**/*.html --csspath dist/$npm_package_config_distSubdir/assets/css/ --htmlroot dist > dist/$npm_package_config_distSubdir/assets/css/screen.reduced.css && npm run dist-clean",
     "build": "npm run dist-empty && npm run build-scripts && npm run build-styles && npm run build-templates && npm run copy",
