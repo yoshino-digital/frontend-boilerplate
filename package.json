@@ -58,8 +58,8 @@
     "watch-scripts": "chokidar 'src/assets/js/**/*' -c 'npm run build-scripts'",
     "watch-styles": "chokidar 'src/assets/less/**/*' -c 'npm run build-styles'",
     "watch-templates": "chokidar 'src/templates/**/*' -c 'npm run build-templates'",
-    "serve": "browser-sync start --server dist --files dist --startPath $npm_package_config_distSubdir --cors --no-notify",
+    "serve": "browser-sync start --server dist --files dist --startPath $npm_package_config_distSubdir --cors --no-notify & npm run watch",
     "upload": "scp -r ./dist/* user@server:/html/",
-    "dev": "npm run build && npm run serve & npm run watch"
+    "dev": "npm run build && npm run serve"
   }
 }
