@@ -28,6 +28,16 @@ If you plan to use GIT with your project, **delete the following lines** from yo
     src/assets/less/yoi-components.less
     src/assets/less/yoi-utilities.less
 
+Additionally, edit the `postinstall` script to prevent overriding your configuration if you run npm install. Change:
+
+    "postinstall": "npm run yoi-update && npm run yoi-init && npm run build && npm run serve",
+
+to
+
+    "postinstall": "npm run yoi-update && npm run build && npm run serve",
+
+If you wish to update your node modules during development, please run `npm update`, not `npm install`.
+
 ## Developing
 
 Your working directory is `src`. You’ll find example pages and a pre-built directory structure for all your templates, scripts, styles and other assets. Take a look at the example files and the readme files inside each directory, as well as inline comments. We’ll publish a more detailed documentation in the future.
