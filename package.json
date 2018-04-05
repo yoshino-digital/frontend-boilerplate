@@ -19,7 +19,7 @@
     "uncss": "^0.16.1"
   },
   "scripts": {
-    "postinstall": "npm run yoi-update && npm run yoi-init && npm run build && npm run serve & npm run watch",
+    "postinstall": "npm run yoi-update && npm run yoi-init && npm run dev",
     "dist-empty": "rm -rf dist && mkdir -p dist/$npm_package_config_distSubdir/assets/{download,favicon,fonts,img,js,css}",
     "dist-clean": "rm dist/$npm_package_config_distSubdir/assets/css/screen.css && mv dist/$npm_package_config_distSubdir/assets/css/screen.reduced.css dist/$npm_package_config_distSubdir/assets/css/screen.css",
     "copy": "npm run copy-favicon && npm run copy-opengraph && npm run copy-download && npm run copy-images && npm run copy-scripts && npm run copy-fonts",
