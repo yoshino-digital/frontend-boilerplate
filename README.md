@@ -1,4 +1,4 @@
-# Yoi Boilerplate
+# Yoi Kit
 
 This repository is a starter kit to kickstart your project with [Yoi – the Yoshino frontend component library](https://github.com/yoshino-digital/yoi). It features:
 
