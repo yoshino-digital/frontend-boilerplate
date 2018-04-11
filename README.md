@@ -1,11 +1,16 @@
 # Yoi Kit
 
-This repository is a starter kit to kickstart your project with [Yoi – the Yoshino frontend component library](https://github.com/yoshino-digital/yoi). It features:
+A solid foundation to kickstart your project with [Yoi – the Yoshino frontend component library](https://github.com/yoshino-digital/yoi). Features:
 
-* all of Yoi’s utilities, components, actions etc.
-* a simple but powerful static site builder
-* templating with [Nunjucks](https://mozilla.github.io/nunjucks/) (with powerful features like inheritance, macros, injected data via json, …)
-* JavaScript/Node -based build tools (via [npm scripts](https://docs.npmjs.com/misc/scripts)) with [local browser](https://browsersync.io) instance for preview, CSS preprosessing with [LESS](http://lesscss.org), CSS compression and even [removal of unused CSS](https://github.com/uncss/uncss) during deployment, script & image-compression and a `upload` task to publish your project via ssh to your web server
+* all of Yoi’s [utilities](https://yoshino-digital.github.io/yoi/utilities/), [components](https://yoshino-digital.github.io/yoi/components/), [behaviours](https://yoshino-digital.github.io/yoi/behaviours/) and [actions](https://yoshino-digital.github.io/yoi/actions/)
+* Node.js based build tools (via [npm scripts](https://docs.npmjs.com/misc/scripts)), including:
+    * a simple but powerful static site builder
+    * templating with [Nunjucks](https://mozilla.github.io/nunjucks/) (with powerful features like inheritance, macros, injected data via json, …)
+    * a [local browser instance](https://browsersync.io) for preview, synchronized across all connected devices (synchronized scrolling, page changes, etc.)
+    * CSS pre-prosessing with [LESS](http://lesscss.org) (variables, mixins, etc.)
+    * CSS post-processing with [autoprefixer](https://autoprefixer.github.io)
+    * image and file compression, even [removal of unused CSS](https://github.com/uncss/uncss) during publishing
+    * a simple upload script to push files via ssh to your web server
 
 ## Documentation
 
@@ -30,13 +35,11 @@ If you plan to use GIT with your project, **delete the following lines** from yo
 
 Additionally, edit the `postinstall` script to prevent overriding your configuration if you run npm install. Change:
 
-    "postinstall": "npm run yoi-update && npm run yoi-init && npm run build && npm run serve",
+    "postinstall": "npm run yoi-update && npm run yoi-init && npm run dev",
 
 to
 
-    "postinstall": "npm run yoi-update && npm run build && npm run serve",
-
-If you wish to update your node modules during development, please run `npm update`, not `npm install`.
+    "postinstall": "npm run yoi-update && npm run dev",
 
 ## Developing
 
@@ -59,7 +62,7 @@ As a shortcut, you could also use: `npm run dev` which chains the tasks `build`,
 3. If you wish to preview the built, run `npm run serve`
 4. You can now use the `upload` task to [deploy](#deploying) your site.
 
-### Difference between Building & Publishing
+#### Difference Between Building & Publishing
 
 The build-prefixed npm scripts produce files suitable for debugging. You can figure out the source file for each line in concatenated files thanks to [source maps](http://blog.teamtreehouse.com/introduction-source-maps). However, these files are large and not meant for production.
 The publish-prefixed scripts produce compressed files without source maps and thus way smaller file sizes. In addition, we make experimental use of [uncss](https://github.com/giakki/uncss) &mdash; a script that parses HTML files and removes all the CSS rules from the stylesheets that were not referenced.
