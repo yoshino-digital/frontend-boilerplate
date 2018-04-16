@@ -1,5 +1,5 @@
 {
-  "name": "yoshino-yoi-boilerplate",
+  "name": "yoshino-yoi-kit",
   "dependencies": {
     "jquery": "^3.0.0",
     "normalize-css": "^4.2.0",
